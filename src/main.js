@@ -1,19 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import axios from 'axios'
-import Element from 'element-ui'
-import VueAxios from 'vue-axios'
-import baseAPI from './api/api'
-Vue.use(VueAxios, axios)
-Vue.use(Element)
-Vue.prototype.$baseAPI = baseAPI
-Vue.prototype.HOME = ''
-Vue.config.productionTip = false
-console.log(process.env)
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import "./plugins/element.js";
+import axios from "axios";
+import Vueaxios from "vue-axios";
+import httpsapi from "./api/api";
+Vue.use(Vueaxios, axios)
+Vue.prototype.Home = '/api'
+Vue.prototype.$baseAPI = httpsapi
+Vue.config.productionTip = false;
+
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount("#app");
