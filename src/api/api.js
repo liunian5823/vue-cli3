@@ -1,61 +1,63 @@
-import axios from 'axios'
-import qs from 'qs'
-import { Message } from 'element-ui';
+import axios from "axios";
+import qs from "qs";
+import { Message } from "element-ui";
 axios.interceptors.response.use(
   response => {
     return new Promise((resolve, reject) => {
-      const res = response.data
-      // messages('error', '123456')
-      if (res.code === '200') {
-        resolve(res)
+      const res = response.data;
+      if (res.code === "200") {
+        resolve(res);
       } else {
-        reject(res)
+        reject(res);
       }
-    })
+    });
   },
   error => {
-    console.log(error)
-    // console.log(message.Message)
-    // Message.error("123")
-    const status = error.response.status
+    console.log(error);
+    const status = error.response.status;
     switch (status) {
       case 500:
-        Message.error("内部服务器错误")
-        break
+        Message.error("内部服务器错误");
+        break;
       case 404:
-        Message.error("请求的网页不存在 ")
-        break
+        Message.error("请求的网页不存在 ");
+        break;
       case 401:
-        Message.error("未授权:")
-        break
+        Message.error("未授权:");
+        break;
       case 400:
-        Message.error("请求无效")
-        break
+        Message.error("请求无效");
+        break;
       default:
-        // console.log(error.response.data.message)
     }
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
-)
+);
 export default {
-  GET (url, params = {}) {
+  GET(url, params = {}) {
     return new Promise((resolve, reject) => {
-      axios.get(url, {
-        params: params
-      }).then(response => {
-        resolve(response)
-      }).catch(err => {
-        reject(err)
-      })
-    })
+      axios
+        .get(url, {
+          params: params
+        })
+        .then(response => {
+          resolve(response);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   },
-  POST (url, params) {
+  POST(url, params) {
     return new Promise((resolve, reject) => {
-      axios.post(url, qs.stringify(params)).then(res => {
-        resolve(res)
-      }).catch(err => {
-        reject(err)
-      })
-    })
+      axios
+        .post(url, qs.stringify(params))
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   }
-}
+};
