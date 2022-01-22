@@ -3,9 +3,31 @@ Write your variables here. All available variables can be
 found in element-ui/packages/theme-chalk/src/common/var.scss.
 For example, to overwrite the theme color:
 */
-$--color-primary: teal;
+$color-primary1:#1776E1; /* 更换的颜色 */
+$color-primary2:#3588CB; /* 更换的颜色 */
+$color-primary3:#7D0000; /* 更换的颜色 */
+$color-primary4:#EB6100; /* 更换的颜色 */
 
 /* icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
+
+@mixin color_primary($color){
+
+  color:$color;
+  /*判断匹配*/
+
+  [data-theme="primary1"] & {
+    color:$color-primary1;
+  }
+  [data-theme="primary2"] & {
+    color:$color-primary2;
+  }
+  [data-theme="primary3"] & {
+    color:$color-primary3;
+  }
+  [data-theme="primary4"] & {
+    color:$color-primary4;
+  }
+}

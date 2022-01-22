@@ -3,6 +3,9 @@ module.exports = {
     process.env.VUE_APP_CURRENTMODE === "production"
       ? "/gerengonzuo/dist"
       : "/",
+  configureWebpack: {
+    devtool: 'source-map'
+  },
   chainWebpack: config => {
     config.plugin("define").tap(args => {
       args[0]["process.env"].VUE_APP_LOGOUT_URL = JSON.stringify(
@@ -12,7 +15,9 @@ module.exports = {
       return args;
     });
   },
+
   lintOnSave: false,
+
   devServer: {
     overlay: {
       warning: false,
@@ -22,7 +27,7 @@ module.exports = {
     host: "localhost", //设置成0.0.0.0可局域网访问
     port: "8888", //设置的端口号
     https: false, //是不是开启https
-    hotOnly: false,
+    hotOnly: true,
     proxy: {
       "/api": {
         target: "http://127.0.0.1", // 代理服务器的地址
@@ -33,6 +38,13 @@ module.exports = {
           "^/api": ""
         }
       }
+    }
+  },
+
+  pluginOptions: {
+    "style-resources-loader": {
+      preProcessor: "scss",
+      patterns: []
     }
   }
 };
