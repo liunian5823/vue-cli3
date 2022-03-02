@@ -45,16 +45,24 @@
 
 <script>
 export default {
-  name: "leftnavigation"
+  name: "leftnavigation",
+  methods: {
+    handleOpen(index, indexPath) {
+      console.log(index, indexPath);
+    },
+    handleClose(index, indexPath) {
+      console.log(index, indexPath);
+    }
+  }
 };
 </script>
 
 <style scoped>
-.navs{
+.navs {
   width: 200px;
   height: 100%;
 }
-.el-menu-vertical-demo{
+.el-menu-vertical-demo {
   height: 100%;
 }
 </style>

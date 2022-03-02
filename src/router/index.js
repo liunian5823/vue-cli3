@@ -16,7 +16,7 @@ const routes = [
           title: "首页"
         },
         component: () => import("../views/index/index")
-      },
+      }
     ]
   },
   {

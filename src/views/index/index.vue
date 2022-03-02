@@ -1,15 +1,26 @@
 <template>
   <div>
-    123456
+     <el-button @click="anniu">默认按钮</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "index"
-}
+  name: "index",
+  data() {
+    return {
+      input: "123"
+    };
+  },
+  mounted() {
+    
+  },
+  methods:{
+    anniu(){
+    //  
+    }
+  }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

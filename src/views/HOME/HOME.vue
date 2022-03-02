@@ -2,7 +2,9 @@
   <div class="asdsa">
     <Header></Header>
     <leftnav></leftnav>
-    <router-view></router-view>
+    <div class="zhuti">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -19,8 +21,18 @@ export default {
 </script>
 
 <style scoped>
-.asdsa{
-  height: 100%;
+.asdsa {
+  height: 93%;
   width: 100%;
+}
+.zhuti {
+  position: absolute;
+  left: 210px !important;
+  right: 0;
+  top: 70px;
+  bottom: 0;
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+  background: #f0f0f0;
 }
 </style>

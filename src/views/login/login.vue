@@ -106,11 +106,11 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      window.document.documentElement.setAttribute('data-theme', 'green');
+      window.document.documentElement.setAttribute("data-theme", "green");
       this.$refs[formName].validate(valid => {
         if (valid) {
-          localStorage.setItem("id",'1');
-          this.$router.push('/')
+          localStorage.setItem("id", "1");
+          this.$router.push("/");
         } else {
           console.log("error submit!!");
           return false;
@@ -188,7 +188,8 @@ export default {
 .login-bg {
   width: 100%;
   height: 100%;
-  background: #3e3e3e;
+  background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage.shumiao.net%2Fuploads%2F20190107%2F12%2F1546834735-dzysNSbvgr.jpg&refer=http%3A%2F%2Fimage.shumiao.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1646983279&t=9cf9aaf496ddb4859a4ad1c93e3858c7') no-repeat;
+  background-size: 100% 100%;
 }
 .denglu {
   width: 30%;

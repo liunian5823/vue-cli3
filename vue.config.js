@@ -4,7 +4,7 @@ module.exports = {
       ? "/gerengonzuo/dist"
       : "/",
   configureWebpack: {
-    devtool: 'source-map'
+    devtool: "source-map"
   },
   chainWebpack: config => {
     config.plugin("define").tap(args => {
